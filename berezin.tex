@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{marginnote}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{wrapfig}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,eulerpx}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+
+\title{Notes on Superanalysis}
+\author{Rui Peixoto}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Grassman Algebra}
+
+\begin{definition}
+    An \emph{algebra} is a vector space $\mathfrak{A}$ over a field $\mathbb{K}$ equiped with a product satisfying $\forall u, v, w \in \mathfrak{A}$ and $\forall \alpha \in \mathbb{K}$
+    \begin{itemize}
+        \item $u(v + w) = uv + uw$
+        \item $(u + v)w = uw + vw$
+        \item $\alpha (u v) = (\alpha u) v = u (\alpha v)$.
+    \end{itemize}
+
+    The algebra $\mathfrak{A}$ is said to be \emph{associative} if $\forall u, v, w \in \mathfrak{A}$
+    \begin{equation*}
+        (uv)w = u(vw)
+    \end{equation*}
+    and \emph{unitary} (or algebra with a unit) if $\exists e \in \mathfrak{A}$ such that $\forall u \in \mathfrak{A}$
+    \begin{equation*}
+        eu = ue = u.
+    \end{equation*}
+    Furthermore, $\mathfrak{A}$ is \emph{commutative} if $\forall u, v \in \mathfrak{A}$
+    \begin{equation*}
+        uv = vu
+    \end{equation*}
+    and $\dim \mathfrak{A} = n$ for $0 \leq n \leq \infty$ if $\mathfrak{A}$ has dimension $n$ as a vector space.
+\end{definition}
+
+\begin{remark}
+    We will consider only the cases $\mathbb{K} \in \{\mathbb{R}, \mathbb{C}\}$.
+\end{remark}
+
+\begin{example}
+    There exist important algebras without a unit. Important examples of such algebras are \emph{Lie algebras}.
+\end{example}
+
+\begin{proposition}
+    Let $\mathfrak{A}$ be a non-trivial Lie algebra. Then $\mathfrak{A}$ does not have a unit.
+\end{proposition}
+\begin{proof}
+    Let $x, y \in \mathfrak{A}$. Assume $\mathfrak{A}$ admits a unit $e \in \mathfrak{A}$, that is $\left[x, e \right] = x = \left[ e, x \right]$ for all $x \in \mathfrak{A}$. By the anticommutativity of the bracket this implies that
+    \begin{equation*}
+        e = \left[ e, e \right] = -\left[ e, e \right]
+        \Longrightarrow e = 0
+    \end{equation*}
+    which contradicts the fact that $\mathfrak{A}$ is non-trivial.
+\end{proof}
+
+\begin{proposition}
+    Let $M$ be a set and $\mathfrak{A}$ an algebra over a field $\mathbb{K}$. Then $\mathfrak{A}^M = \left\{ f: M \longrightarrow \mathfrak{A} \right\}$ is an algebra over $\mathbb{K}$. If $\mathfrak{A}$ is associative or commutative, then so is $\mathfrak{A}^M$.
+\end{proposition}
+\begin{proof}
+    Let $f, g, h \in \mathfrak{A}^M$, and $\alpha \in \mathbb{K}$. Then $\forall x \in M$
+    \begin{align*}
+        f(x) \left[ g(x) + h(x) \right] = f(x) g(x) + f(x)h(x) 
+        & \Longrightarrow f(g + h) = fg + fh \\
+        \left[f(x) + g(x) \right] h(x)  = f(x) h(x) + g(x)h(x) 
+        & \Longrightarrow (f + g)h = fh + gh \\
+        \left[ \alpha f(x) \right] g(x) = f(x) \left[ \alpha g(x) \right]
+         = \alpha f(x) g(x) & \Longrightarrow (\alpha f) g = f(\alpha g) = \alpha fg
+    \end{align*}
+    so $\mathfrak{A}^M$ is an algebra over $\mathbb{K}$. Associativity and commutativity inherited from $\mathfrak{A}$ are shown analogously.
+\end{proof}
+
+\begin{example}
+    Consider a domain $U \subseteq \mathbb{R}^p$. Then $
+        \mathcal{A}(U) = \left\{ f \in \mathbb{K}^U \ \middle| \ f \text{ is smooth} \right\} $
+    is an algebra over $\mathbb{K}$. $\mathcal{A}(U)$ admits a subalgebra $\mathcal{P}(U) = \left\{ f \in \mathcal{K}^U \ \middle| \ f \text{ is polynomial} \right\}$.
+\end{example}
+
+\section{Supermanifolds}
+
+\subsection{Sheaves}
+
+\begin{definition}
+    Let X be a topological space. We define Op$(X)$ to be the \emph{category of open sets of X}. The objects of Op$(X)$ are open subsets $U \subseteq X$ and morphisms are inclusions of open sets $V \subseteq U \subseteq X$ into eachother.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzcd}[column sep=small]
+            V \arrow[rr, hook] \arrow[dr] &  & U \arrow[dl] \\
+            & X &
+        \end{tikzcd}
+        \caption{Morphisms in Op$(X)$.}
+    \end{figure}
+\end{definition}
+
+\begin{remark}
+    Morphisms in Op$(X)$ induce a partial ordering of Op$(X)$.
+\end{remark}
+
+\begin{definition}
+    Let $X$ be a topological space and $C$ a locally small category\footnote{Consider categories such as Set, Ab, Vect, or Ring.}. A \emph{presheaf} over $X$ with values in $C$ is a contravariant functor $F:\text{Op}(X) \rightarrow C$.
+
+A presheaf includes
+\begin{enumerate}
+    \item an assignment of an object $F(U)$ from the category $C$ to each open set $V \subseteq X$,
+    \item an assignment of a morphism $\rho_V^U: F(U) \rightarrow F(V)$ from the category $C$ to each pair $V \subseteq U$ in Op$(X)$,
+    \item an identity morphism $\rho_U^U = \text{id}$,
+    \item $\rho_W^V \rho_V^U= \rho_W^U$ for open sets $W \subseteq V \subseteq U \subseteq X$.
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzcd}
+        U \arrow[r, "F"] & F(U) \arrow[d, "\rho_V^U"] \\
+        V \arrow[u, hook] \arrow[r, "F"] & F(V)
+    \end{tikzcd}
+    \caption{Structural morphism of presheaves.}
+\end{figure}
+\end{definition}
+
+\begin{remark}
+    Intuitively, precheaves encode data from $C$ attached to open sets of $X$. The structural morphism $\rho_V^U: F(U) \rightarrow F(V)$ can be thought of as the restriction of the data enconded in $U$ to that concerning only the subset $V$.
+\end{remark}
+
+\begin{definition}
+    If $F, G: \text{Op}(X) \rightarrow C$ are presheaves over a common topological space $X$, then a \emph{morphism} $m: F \rightarrow G$ is a collection of morphisms $m(U): F(U) \rightarrow G(U)$ from the category $C$ such that for every pair $V \subseteq U$ the following diagram commutes, where $\sigma_V^U$ are structural morphisms of the presheaf $G$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzcd}
+        F(U) \arrow[d, "\rho_V^U"] \arrow[r, "m(U)"] & G(U) \arrow[d, "\sigma_V^U"] \\
+        F(V) \arrow[r, "m(V)"] & G(V)
+    \end{tikzcd}
+\end{figure}
+
+\begin{definition}
+    \label{def:sheaf}
+    A presheaf is called a \emph{sheaf} if it satisfies the following additional requirements: whenever $U = \bigcup_{\alpha \in A} U_\alpha$, where $U_\alpha \subseteq X$, then
+    
+    \begin{enumerate}
+        \item for $f, g \in F(U)$, if $\forall \alpha \in A$
+        \begin{equation*}
+            \rho_{U_\alpha}^U f = \rho_{U_\alpha}^U g
+        \end{equation*}
+        then $f = g$.
+        \item if $f_\gamma \in F(U_\gamma)$ for all $\gamma \in A$ are such that $\forall \alpha, \beta \in A$
+        \begin{equation*}
+            \rho_{U_\alpha \cap U_\beta}^{U_\alpha} f_\alpha
+            = \rho_{U_\beta \cap U_\alpha}^{U_\beta} f_\beta
+        \end{equation*}
+        then there exists $f \in F(U)$ such that $\forall \gamma \in A$
+        \begin{equation*}
+            f_\gamma = \rho_{U_\gamma}^U f.
+        \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Definition \ref{def:sheaf} implies that $f \in F(U)$ are determined by their values on an arbitrarily fine covering of $U$.
+\end{remark}
+
+\begin{definition}
+    A \emph{fiber space} (or \emph{bundle}) over a base space $X$ is a continuous mapping $p: E \rightarrow X$.
+\end{definition}
+
+\begin{remark}
+    A fiber space is a sheaf over $X$ with values in Set if for each $e \in E$ there exists a neighborhood $E'$ homeomorphic to $p(E') \times p^{-1}(p(e))$.
+\end{remark}
+
+\end{document}
