@@ -109,13 +109,20 @@
 \end{definition}
 
 \begin{proposition}
-    Let $\mathfrak{A}$ be a finite-dimensional topological algebra. Any system of topological generators of $\mathfrak{A}$ admits a finite subset which is a also a system of algebraic generators. This is not necessarily true for infinite-dimensional algebras.
+    Let $\mathfrak{A}$ be a finite-dimensional topological algebra. Any system of topological generators of $\mathfrak{A}$ admits a finite subset constituting a also a system of algebraic generators. This is not necessarily true for infinite-dimensional algebras.
 \end{proposition}
 \begin{proof}
     Page 31-32 of \cite{berezin_introduction_1987}.
 \end{proof}
 
-
+\begin{definition}
+    Let $\mathfrak{R}$ be a left (right) ideal of an algebra $\mathfrak{A}$. A subset $\Sigma \subseteq \mathfrak{R}$ is a \emph{system of generators} of $\mathfrak{R}$ or \emph{generating set} if $\forall x \in \mathfrak{R}$ can be writen as a polynomial on elements $\xi_i \in \Sigma$
+    \begin{equation}
+        \label{eq:generators_ideals}
+        x = \sum_{k \leq 1} \sum_{i_1 \dots i_k} a_{i_1 \dots i_k} \xi_1 \dots \xi_k
+    \end{equation}
+    for $a_{i_1 \dots i_k} \in \mathfrak{A}$, where the sum is finite. Elements of the form \eqref{eq:generators_ideals} are called left (right) polynomials. If $\mathfrak{A}$ is a topological algebra, $\Sigma$ is a \emph{system of topological generators} if the collection of left polynomials of elements in $\Sigma$ with coefficients in $\mathfrak{A}$ are dense in $\mathfrak{R}$.
+\end{definition}
 
 \section{Supermanifolds}
 
