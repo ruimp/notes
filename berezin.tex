@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{marginnote}
 \usepackage{tikz}
+\usepackage{hyperref}
 \usetikzlibrary{cd}
 \usepackage{wrapfig}
 \usepackage[T1]{fontenc}
@@ -179,16 +180,78 @@
     Let $f \in \Lambda(\xi_1, \dots, \xi_q)$. If the decomposition of $f$ has in \eqref{eq:grassmann_element} is nonzero only for even (odd) values of $k$, then $f$ is said to be \emph{even (odd) with respect to the system of generators} $\left\{ \xi_1, \dots, \xi_q \right\}$. Even and odd elements are \emph{homogeneous with respect to parity}.
 \end{definition}
 
+\begin{remark}
+    Seperating the sum in \eqref{eq:grassmann_element} into even and odd parts, it is becomes clear that
+    \begin{equation*}
+        \Lambda(\xi_1, \dots, \xi_q) = \tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{} \oplus \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}.
+    \end{equation*}
+\end{remark}
+
+\begin{remark}
+    The even subspace $\tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{} \subseteq \Lambda$ contains the unit. In fact, it forms a subalgebra of $\Lambda$, so one can write $\tensor[^0]{\Lambda}{} \subseteq \Lambda$ with no ambiguity arising from the choice of system of generators.
+\end{remark}
+
 \begin{definition}
-    Let $\Lambda(\xi_1, \dots, \xi_q)$ be a Grassmann algebra. The even and odd elements form linear subspaces $\tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $\tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$, respectively.
+    Let $\Lambda(\xi_1, \dots, \xi_q)$ be a Grassmann algebra. The even and odd elements form linear subspaces $\tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $\tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$, respectively. We define the \emph{parity} of $f \in \Lambda(\xi_1, \dots, \xi_q)$ by
+    \begin{equation*}
+        \alpha(f) = \left\{
+        \begin{array}{ll}
+            0 & \text{if } f \in \tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{} \\
+            1 & \text{if } f \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}
+        \end{array}\right. \ .
+    \end{equation*}
+    Then, for $f, g \in \Lambda(\xi_1, \dots, \xi_q)$ we have
+    \begin{equation*}
+        \alpha(fg) = \alpha(f) + \alpha(g) \mod 2
+    \end{equation*}
+    and
+    \begin{equation}
+        \label{eq:grassmann_commutation}
+        fg = (-1)^{\alpha(f) \alpha(g)}gf.
+    \end{equation}
+
+    \begin{proposition}
+        The subspace $\tensor[^0]{\Lambda}{} \subseteq \Lambda$ does not depend on the choice of system of generators.
+    \end{proposition}
+    \begin{proof}
+        We will show that
+        \begin{equation*}
+            \tensor[^0]{\Lambda}{} =
+            \left\{ f \in \Lambda \ \middle| \ fg = gf, \forall g \in \Lambda \right\}.
+        \end{equation*}
+        Let $f \in \tensor[^0]{\Lambda}{}$. Then by \eqref{eq:grassmann_commutation} it follows that $fg = gf$ for all $g \in \Lambda$. On the other hand, let $f \in \Lambda$ commute with every element $g \in \Lambda$. In particular, we might pick $g$ odd, so $\alpha(g) = 1$. From \eqref{eq:grassmann_commutation} it follows that $\alpha(f) \alpha(g) = 0$, thus $\alpha(f) = 0$.
+    \end{proof}
+
+    \begin{proposition}
+        Let $f, g \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $h \in \tensor[^0]{\Lambda}{}$. Then
+        \begin{itemize}
+            \item $fg = -gf \in \tensor[^0]{\Lambda}{}$
+            \item $fh \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$.
+        \end{itemize}
+    \end{proposition}
+    \begin{proof}
+        These properties of odd elements follow directly from \eqref{eq:grassmann_element} and \eqref{eq:grassmann_commutation}.
+    \end{proof}
+
 \end{definition}
 
+\subsection{Grassmann Algebra Generator Systems}
+
+\begin{theorem}
+    Any system of generators of a Grassman algebra $\Lambda_q$ contains a subsystem consisting of $q$ generators, and there exists no subsystem with fewer generators. Furthermore, let $\left\{ \xi_i \right\} \subseteq \Lambda_q$ be a subset of nilpotent elements whose union with the unit forms a system of generators of $\Lambda_q$. Then a subset $\left\{ \eta_j \right\} \subseteq \Lambda_q$ has the same property if and only if
+    \begin{equation*}
+        \eta_i = \sum_{j = 1}^{q} a_{ij} \xi_j + \sigma_j
+    \end{equation*}
+    for $\deg \sigma_i > 1$ and $\det \left\| a_{ij} \right\| \neq 0$.
+\end{theorem}
 
 
 
 
 
 
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
