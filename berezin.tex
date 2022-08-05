@@ -19,6 +19,7 @@
 
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}[theorem]
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
@@ -150,7 +151,7 @@
         f = f(\xi) = \sum_{k \geq 0} \sum_{i_1 \dots i_k}
         f_{i_1 \dots i_k} \xi_{i_1} \dots \xi_{i_k}.
     \end{equation}
-    The term corresponding to $k = 0$ is the unit in $\Lambda$. This decomposition is unique if one requires $f_{i_1 \dots i_k}$ to be skew-symmetric with respect to $i_1, \dots, i_k$.
+    The term with $k = 0$ is proportional to the unit in $\Lambda$. This decomposition is unique if one requires $f_{i_1 \dots i_k}$ to be skew-symmetric with respect to $i_1, \dots, i_k$.
 \end{remark}
 
 \begin{definition}
@@ -238,12 +239,70 @@
 \subsection{Grassmann Algebra Generator Systems}
 
 \begin{theorem}
+    \label{thm:grassmann_generators}
     Any system of generators of a Grassman algebra $\Lambda_q$ contains a subsystem consisting of $q$ generators, and there exists no subsystem with fewer generators. Furthermore, let $\left\{ \xi_i \right\} \subseteq \Lambda_q$ be a subset of nilpotent elements whose union with the unit forms a system of generators of $\Lambda_q$. Then a subset $\left\{ \eta_j \right\} \subseteq \Lambda_q$ has the same property if and only if
     \begin{equation*}
         \eta_i = \sum_{j = 1}^{q} a_{ij} \xi_j + \sigma_j
     \end{equation*}
     for $\deg \sigma_i > 1$ and $\det \left\| a_{ij} \right\| \neq 0$.
 \end{theorem}
+\begin{proof}
+    Pages 39-41 of \cite{berezin_introduction_1987}.
+\end{proof}
+
+\begin{theorem}
+    Let $\left\{ \xi_i \right\}$ be a system of canonnical generators of the Grassmann algebra $\Lambda(\xi_1, \dots, \xi_q)$. Then
+    \begin{enumerate}
+        \item a collection of off elements $\left\{ \eta_j \right\}$ with respect to $\left\{ \xi_i \right\}$ together with the unit constitutes a system of canonical generators of $\Lambda_q$ if and only if
+        \begin{equation*}
+            \eta_i = \sum_{j = 1}^q \psi_{ij} \xi_j + \alpha_i, \quad \forall i \in \left\{ 1, \dots, q \right\}
+        \end{equation*}
+        with $\det \left\| \psi_{ij} \right\| \neq 0$ and $\deg \alpha_i \geq 3$.
+        \item an arbitrary collection $\left\{ \eta_i \right\}$ together with $1$ forms a system of canonical generators of $\Lambda_q$ if and only if
+        \begin{equation}
+            \label{eq:canonical_generators}
+            \eta_i = \zeta_i(1 + \mu), \quad \forall i \in \left\{ 1, \dots, q \right\}
+        \end{equation}
+        where $\left\{ \zeta_i \right\}$ is a system of odd (with respect to $\left\{ \xi_i \right\}$) canonical generators of $\Lambda_q$ and $\mu$ is also odd.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    The first item follows from theorem \ref{thm:grassmann_generators}. Consider then the second item. Suppose that $\left\{ \eta_i \right\}$ are of the form \eqref{eq:canonical_generators}. Then
+    \begin{equation*}
+        \eta_i \eta_j = \zeta_i (1 + \mu) \zeta_j (1 + \mu)
+        = \zeta_i \zeta_j ( 1 - \mu) (1 + \mu)
+        = \zeta_i \zeta_j (1 + \mu^2) = \zeta_i \zeta_j
+    \end{equation*}
+    Then $\forall f \in \tensor[^1]{\Lambda}{_q}$ we have that $f(\eta) = f(\zeta)(1 + \mu(\zeta))$ by substituting in \eqref{eq:grassmann_element}. In particular
+    \begin{equation*}
+        \mu(\eta) = \mu(\zeta)(1 + \mu(\zeta)) = \mu(\zeta) + \mu(\zeta)^2 = \mu(\zeta)
+    \end{equation*}
+    therefore $\xi_i = \eta_i(1 + \mu(\eta))^{-1} = \eta_i (1 - \mu(\eta))$, so $\left\{ \eta_i \right\}$ is a system of canonical generators. Now assume $\left\{ \eta_i \right\}$ is a system of canonical generators. Then we may write $\eta_i = \zeta_i + \vartheta_i$ for $\zeta_i \in \tensor[^1]{\Lambda}{_q}$ and $\vartheta_i \in \tensor[^0]{\Lambda}{_q}$ with $\deg \vartheta_i > 1$, for all $i \in \left\{ 1, \dots, q \right\}$. From theorem \ref{thm:grassmann_generators} follows that $\left\{ \zeta_i \right\}$ form a system of odd generators, thus canonical. Hence
+    \begin{equation*}
+        \eta_i \eta_j + \eta_j \eta_i = (\zeta_i + \vartheta_i)(\zeta_j + \vartheta_j) + (\zeta_j + \vartheta_j)(\zeta_i + \vartheta_i)
+        = 2 (\zeta_i \vartheta_j + \zeta_j \vartheta_i) = 0
+    \end{equation*}
+    for all $i, j \in \left\{ 1, \dots, q \right\}$. Setting $i = j$
+    \begin{equation*}
+        \eta_i^2 = (\zeta_i + \vartheta_i)^2 = \zeta_i \vartheta_i + \vartheta_i \zeta_i = 0
+    \end{equation*}
+    so $\vartheta_i = \zeta_i \mu_i$ for some $\mu_i \in \tensor[^1]{\Lambda}{_q}$. Suppose that there exits $\mu \in \tensor[^1]{\Lambda}{_q}$ such that $\mu = \mu_i + \zeta_i \lambda_i$ for some $\lambda_i \in \tensor[^1]{\Lambda}{_q}$ and $i \in \left\{ 1, \dots, q \right\}$. Then
+    \begin{equation*}
+        \eta_i = \zeta_i + \vartheta_i = \zeta_i (1 + \mu_i)
+        = \zeta_i (1 + \mu_i + \zeta_i \lambda_i) = \zeta_i (1 + \mu).
+    \end{equation*}
+    As such, lemma \eqref{lemma:1} conclude the proof.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:1}
+    There exists $\mu \in \tensor[^1]{\Lambda}{_q}$ such that $\mu = \mu_i + \zeta_i \lambda_i$ for all $i \in \left\{ 1, \dots, q \right\}$.
+\end{lemma}
+\begin{proof}
+    Page 42 from \cite{berezin_introduction_1987}.
+\end{proof}
+
+
 
 
 
