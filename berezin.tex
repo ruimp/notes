@@ -12,6 +12,7 @@
 \usepackage{marginnote}
 \usepackage{tikz}
 \usepackage{hyperref}
+\usepackage{dsfont}
 \usetikzlibrary{cd}
 \usepackage{wrapfig}
 \usepackage[T1]{fontenc}
@@ -36,7 +37,9 @@
 
 \section{Grassmann Algebra}
 
-\subsection{Algebras}
+\subsection{Associative Algebras}
+
+\subsubsection{Algebras}
 
 \begin{definition}
     An \emph{algebra} is a vector space $\mathfrak{A}$ over a field $\mathbb{K}$ equiped with a product satisfying $\forall u, v, w \in \mathfrak{A}$ and $\forall \alpha \in \mathbb{K}$
@@ -103,6 +106,8 @@
     is an algebra over $\mathbb{K}$. $\mathcal{A}(U)$ admits a subalgebra $\mathcal{P}(U) = \left\{ f \in \mathcal{K}^U \ \middle| \ f \text{ is polynomial} \right\}$.
 \end{example}
 
+\subsubsection{Generators}
+
 \begin{definition}
     Let $\Sigma \subseteq \mathfrak{A}$, then the set of polynomials on the elements $a_i \in \Sigma$
     \begin{equation}
@@ -134,6 +139,8 @@
 
 
 \subsection{Grassmann Algebras}
+\subsubsection{Properties of Grassmann Algebras}
+
 
 \begin{definition}
     An associative algebra $\Lambda$ with unit is called a \emph{Grassmann} or \emph{exterior} algebra if it contains a system of generators $\{ \xi_i \}_{i \in I}$ such that $\forall i, k \in I$
@@ -236,7 +243,7 @@
 
 \end{definition}
 
-\subsection{Grassmann Algebra Generator Systems}
+\subsubsection{Grassmann Algebra Generator Systems}
 
 \begin{theorem}
     \label{thm:grassmann_generators}
@@ -299,9 +306,39 @@
     There exists $\mu \in \tensor[^1]{\Lambda}{_q}$ such that $\mu = \mu_i + \zeta_i \lambda_i$ for all $i \in \left\{ 1, \dots, q \right\}$.
 \end{lemma}
 \begin{proof}
-    Page 42 from \cite{berezin_introduction_1987}.
+    Noticing that for all $i, j \in \left\{ 1, \dots, q \right\}$
+    \begin{equation*}
+        0 = \zeta_i \zeta_j (\mu - \mu)
+        = \zeta_i \zeta_j (\mu_i - \mu_j + \zeta_i \lambda_i - \zeta_j \lambda_j)
+        = \zeta_i \zeta_j (\mu_i - \mu_j)
+    \end{equation*}
+    implies $\mu_i - \mu_j = \zeta_i \lambda + \zeta_j \kappa$ for $\lambda, \kappa \in \Lambda_q$. The proof follows by induction as in page 42 of \cite{berezin_introduction_1987}.
 \end{proof}
 
+\begin{corollary}
+    Let $\left\{ \xi_i \right\}$ be a system of canonical generators of $\Lambda$ and $\mu \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$. Then
+    \begin{equation*}
+        \tensor[^{1, \mu}]{\Lambda}{}
+        = \left\{ f(1 + \mu) \ \middle| \ f \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{} \right\}.
+    \end{equation*}
+    is the space of odd elements with respect to some system of canonica generators of $\Lambda$.
+\end{corollary}
+
+
+\subsubsection{Parity Automorphisms}
+
+
+\begin{definition}
+    Let $\Lambda$ be a Grassmann algebra. Let $\tensor[^0]{\Lambda}{}$ and $\tensor[^1]{\Lambda}{}$ be its even and odd componenets with respect to some system of generators. A linear transformation $A: \Lambda \rightarrow \Lambda$ is a \emph{parity automorphism} if
+    \begin{enumerate}
+        \item $A^2 = \mathds{1}$, the identity automorphism
+        \item $A f = f \Leftrightarrow f \in \tensor[^0]{\Lambda}{}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    Let $\Lambda$ be a Grassmann algebra and $A$ a parity automophism of $\Lambda$. The space of eigenvectors of $A$ with eigenvalue $-1$ coincides with the space of odd elements with respect to a system of canonical generators.
+\end{theorem}
 
 
 
@@ -312,7 +349,6 @@
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \section{Supermanifolds}
 
