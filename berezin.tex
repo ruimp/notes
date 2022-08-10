@@ -231,6 +231,7 @@
     \end{proof}
 
     \begin{proposition}
+        \label{prop:properties_odd_elements}
         Let $f, g \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $h \in \tensor[^0]{\Lambda}{}$. Then
         \begin{itemize}
             \item $fg = -gf \in \tensor[^0]{\Lambda}{}$
@@ -258,6 +259,7 @@
 \end{proof}
 
 \begin{theorem}
+    \label{thm:grassmann_canonical_generators}
     Let $\left\{ \xi_i \right\}$ be a system of canonnical generators of the Grassmann algebra $\Lambda(\xi_1, \dots, \xi_q)$. Then
     \begin{enumerate}
         \item a collection of off elements $\left\{ \eta_j \right\}$ with respect to $\left\{ \xi_i \right\}$ together with the unit constitutes a system of canonical generators of $\Lambda_q$ if and only if
@@ -337,8 +339,92 @@
 \end{definition}
 
 \begin{theorem}
+    \label{thm:parity_aut_generators}
     Let $\Lambda$ be a Grassmann algebra and $A$ a parity automophism of $\Lambda$. The space of eigenvectors of $A$ with eigenvalue $-1$ coincides with the space of odd elements with respect to a system of canonical generators.
 \end{theorem}
+\begin{proof}
+    Page 43 of \cite{berezin_introduction_1987}.
+\end{proof}
+
+\begin{corollary}
+    Let $\Lambda$ be a Grassmann algebra. A subspace $\tensor[^1]{\Lambda}{} \subseteq \Lambda$ such that $\Lambda = \tensor[^0]{\Lambda}{} \oplus \tensor[^1]{\Lambda}{}$ satisfying properties of proposition \ref{prop:properties_odd_elements} coincides with the space of odd elements with respect to a system of canonical generators.
+\end{corollary}
+\begin{proof}
+    Define $A: \Lambda \rightarrow \Lambda$ by
+    \begin{equation*}
+        Af = \left\{
+        \begin{array}{cr}
+            f & \text{if } f \in \tensor[^0]{\Lambda}{} \\
+            -f & \text{if } f \in \tensor[^1]{\Lambda}{}
+        \end{array} \right.
+    \end{equation*}
+    which is a parity automorphism. The corollary follows from theorem \ref{thm:parity_aut_generators}.
+\end{proof}
+
+
+\subsubsection{Automorphisms of Grassmann Algebras}
+
+\begin{proposition}
+    Theorem \ref{thm:grassmann_generators} gives a discription of all automophisms of Grassmann algebras.
+\end{proposition}
+\begin{proof}
+    Let $T: \Lambda \rightarrow \Lambda$ be such an automorphism and $\left\{ \xi_i \right\}$ a system of canonical generators of $\Lambda$. Then $T$ maps $\left\{ \xi_i \right\}$ into a system of canonical generators. On the other hand, given another system of canonical generators $\left\{ \eta_i \right\}$, then one may contruct $T$ such that $T \xi_i = \eta_i$ for all $i \in \left\{ 1, \dots, q \right\}$, and this uniquely defines $T$.
+\end{proof}
+
+\begin{definition}
+    Let $\Lambda$ be a Grassmann algebra. The group of automorphisms of $\Lambda$ is denoted by $\text{Aut} (\Lambda)$. Let $A \in \text{Aut}(\Lambda)$ be a parity automorphism. Then one writes $\tensor[^{A, 1}]{\Lambda}{} \subseteq \Lambda$ to denote the subspace consisting of eigenvectors of $A$ corresponding to eigenvector $-1$. By theorem \ref{thm:parity_aut_generators} follows that $f \in \tensor[^{A, 1}]{\Lambda}{}$ are odd with respect to some system of canonical generators.
+\end{definition}
+
+\begin{definition}
+    Given a Grassmann algebra $\Lambda$ and a parity automorphism $A$, we define $\text{Aut}_A^1(\Lambda) \subseteq \text{Aut}(\Lambda)$ to be the subgroup of automorphisms that preserve $\tensor[^{A, 1}]{\Lambda}{}$. Let $\left\{ \xi_i \right\} \subseteq \tensor[^{A, 1}]{\Lambda}{}$ be a system of canonical generators of $\Lambda$. Then we denote by $\text{Aut}_A^1(\Lambda)$ the subgroup of automorphisms of $\Lambda$ of the form
+    \begin{equation*}
+        T \xi_i = \xi_i (1 + \mu(\xi))
+    \end{equation*}
+    for $\mu(\xi) \in \tensor[^{A, 1}]{\Lambda}{}$.
+\end{definition}
+
+\begin{proposition}
+    Let $\Lambda$ be a Grassmann algebra. The following properties hold:
+    \begin{enumerate}
+        \item Let $T \in \text{Aut}(\Lambda)$. Then $T$ can be represented uniquely as $T = T_1 T_2$ for $T_1 \in \text{Aut}_A^1(\Lambda)$ and $T_2 \in \text{Aut}_A^0(\Lambda)$.
+        \item Let $T \in \text{Aut}_A^1(\Lambda)$, then $T$ acts trivially on even elements.
+        \item Let $T \in \text{Aut}_A^1(\Lambda)$, then $T$ acts on odd elements $f \in \Lambda$ with respect to a system of canonical generators $\left\{ \xi_i \right\}$ according to
+        \begin{equation*}
+            (Tf)(\xi) = f(\xi)(1 + \mu(\xi)).
+        \end{equation*}
+        \item $\text{Aut}_A^1(\Lambda)$ is commutative and isomorphic to $\left( \tensor[^{A, 1}]{\Lambda}{}, + \right)$ as groups.
+        \item $\text{Aut}_A^1(\Lambda)$ is a normal subgroup of $\text{Aut}(\Lambda)$.
+        \item Let $A$ and $B$ be parity automorphisms of $\Lambda$. Then the subgroups $\text{Aut}_A^0(\Lambda)$ and $\text{Aut}_B^0(\Lambda)$ (or $\text{Aut}_A^1(\Lambda)$ and $\text{Aut}_B^1(\Lambda)$) are conjugate.
+        \item The set of elements $T \in \text{Aut}(\Lambda)$ of the form
+        \begin{equation*}
+            T \xi_i = \xi_i + u(\xi)
+        \end{equation*}
+        with $\deg u \geq n$ form a normal subgroup $\text{Aut}_n(\Lambda) \subseteq \text{Aut}(\Lambda)$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Let $\Lambda(\xi_1, \dots, \xi_q)$ be a Grassmann algebra and $A$ a parity automophism of $\Lambda$.
+    \begin{enumerate}
+        \item Follows from the decomposition $\Lambda = \tensor[^0]{\Lambda}{} \oplus \tensor[^1]{\Lambda}{}$.
+        \item Notice that
+        \begin{equation*}
+            T(\xi_1 \xi_2) = \xi_1(1 + \mu)\xi_2(1 + \mu) = \xi_1 \xi_2 (1 - \mu)(1 + \mu) = \xi_1 \xi_2.
+        \end{equation*}
+        Writing any element $f \in \tensor[^0]{\Lambda}{}$ as in \eqref{eq:grassmann_element}, the result follows.
+        \item Follows from \eqref{eq:grassmann_element}, analogously to above.
+        \item Let $T_1, T_2 \in \text{Aut}_A^1(\Lambda)$. Then
+        \begin{equation*}
+            T_1 T_2 \xi_i = T_1 \xi_i (1 + \mu_2(\xi))
+            = \xi_i(1 + \mu_2(\xi))(1 + \mu_1(\xi))
+            = \xi_i \left[1 + \mu_2(\xi) + \mu_1(\xi) + \mu_1(\xi) \mu_2(\xi) \right].
+        \end{equation*}
+        But theorem \ref{thm:grassmann_canonical_generators} states that $\eta_i = T_1 T_2 \xi_i$ must of the form
+        \begin{equation*}
+            \eta_i = \zeta_i ( 1 + \mu), \quad \zeta_i = \sum_{j = 1}^q a_{ij} \xi_j + \sigma_i
+        \end{equation*}
+        with $\deg \sigma_i \geq 3$ and $\mu, \sigma_i \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$. Thus $\mu_1(\xi) \mu_2(\xi) = 0$.
+    \end{enumerate}
+\end{proof}
 
 
 
