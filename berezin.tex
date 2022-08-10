@@ -262,7 +262,7 @@
     \label{thm:grassmann_canonical_generators}
     Let $\left\{ \xi_i \right\}$ be a system of canonnical generators of the Grassmann algebra $\Lambda(\xi_1, \dots, \xi_q)$. Then
     \begin{enumerate}
-        \item a collection of off elements $\left\{ \eta_j \right\}$ with respect to $\left\{ \xi_i \right\}$ together with the unit constitutes a system of canonical generators of $\Lambda_q$ if and only if
+        \item a collection of odd elements $\left\{ \eta_j \right\}$ with respect to $\left\{ \xi_i \right\}$ together with the unit constitutes a system of canonical generators of $\Lambda_q$ if and only if
         \begin{equation*}
             \eta_i = \sum_{j = 1}^q \psi_{ij} \xi_j + \alpha_i, \quad \forall i \in \left\{ 1, \dots, q \right\}
         \end{equation*}
@@ -418,11 +418,24 @@
             = \xi_i(1 + \mu_2(\xi))(1 + \mu_1(\xi))
             = \xi_i \left[1 + \mu_2(\xi) + \mu_1(\xi) + \mu_1(\xi) \mu_2(\xi) \right].
         \end{equation*}
-        But theorem \ref{thm:grassmann_canonical_generators} states that $\eta_i = T_1 T_2 \xi_i$ must of the form
+        But theorem \ref{thm:grassmann_canonical_generators} states that $\eta_i = T_1 T_2 \xi_i$ must of the form,,
         \begin{equation*}
             \eta_i = \zeta_i ( 1 + \mu), \quad \zeta_i = \sum_{j = 1}^q a_{ij} \xi_j + \sigma_i
         \end{equation*}
-        with $\deg \sigma_i \geq 3$ and $\mu, \sigma_i \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$, thus $\mu_1(\xi) \mu_2(\xi) = 0$.
+        with $\deg \sigma_i \geq 3$ and $\mu, \sigma_i \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}$, thus $\mu_1(\xi) \mu_2(\xi) = 0$. Therefore
+        \begin{equation*}
+            T_1 T_2 \eta_i = \xi_i(1 + \mu_2(\xi) + \mu_1(\xi)) = \xi_i(1 + \mu_1(\xi) + \mu_2(\xi)) = T_2 T_1 \eta_i.
+        \end{equation*}
+        \item Let $T \in \text{Aut}_A^1(\Lambda)$ and $H \in \text{Aut}(\Lambda)$. By the first statement $G = G_1 G_2$ for $G_1 \in \text{Aut}_A^1(\Lambda)$ and $G_2 \in \text{Aut}_A^0(\Lambda)$. Let $f \in \Lambda$ be such that $f = \mu + \nu$ for $\mu$ odd and $\nu$ even. Then by statements 2 and 4 follows that
+        \begin{align*}
+            T G(f) &= T G_1 G_2(f) = G_1 T G_2 (\mu + \nu) = G_1 T (\mu + G_2 \nu) \\
+            &= G_1 (T \mu + G_2 \nu) = G_1 G_2 (T\mu + T \nu) = G T (f).
+        \end{align*}
+        \item Let $A$ and $B$ be parity automorphisms of $\Lambda$ and consider automorphisms $T \in \text{Aut}_A^1(\Lambda)$ and $G \in \text{Aut}_B^1(\Lambda)$. Then these are of the form
+        \begin{equation*}
+            T \xi_i = \xi_i (1 + \mu(\xi)), \quad G \xi_i = \xi_i (1 + \nu(\xi))
+        \end{equation*}
+        for $\mu \in \tensor[^{A, 1}]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $\nu \in \tensor[^{B, 1}]{\Lambda(\xi_1, \dots, \xi_q)}{}$. From theorem \ref{thm:parity_aut_generators}, one may choose a system of canonical generators containing $\mu$.
     \end{enumerate}
 \end{proof}
 
