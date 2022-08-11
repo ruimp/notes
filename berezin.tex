@@ -429,14 +429,42 @@
             T G(f) &= T G_1 G_2(f) = G_1 T G_2 (\mu + \nu) = G_1 T (\mu + G_2 \nu) \\
             &= G_1 (T \mu + G_2 \nu) = G_1 G_2 (T\mu + T \nu) = G T (f).
         \end{align*}
-        \item Let $A$ and $B$ be parity automorphisms of $\Lambda$ and consider automorphisms $T \in \text{Aut}_A^1(\Lambda)$ and $G \in \text{Aut}_B^1(\Lambda)$. Then these are of the form
+        \item Follows from theorems \ref{thm:grassmann_canonical_generators} and \ref{thm:parity_aut_generators}.
+        \item Clearly $\mathds{1} \in \text{Aut}_n(\Lambda)$. Let $T, G \in \text{Aut}_n(\Lambda)$. Then
         \begin{equation*}
-            T \xi_i = \xi_i (1 + \mu(\xi)), \quad G \xi_i = \xi_i (1 + \nu(\xi))
+            T G^{-1} \xi_i = T \xi_i (1 - \nu(\xi)) = \xi_i (1 - \nu(\xi) + \mu(\xi))
         \end{equation*}
-        for $\mu \in \tensor[^{A, 1}]{\Lambda(\xi_1, \dots, \xi_q)}{}$ and $\nu \in \tensor[^{B, 1}]{\Lambda(\xi_1, \dots, \xi_q)}{}$. From theorem \ref{thm:parity_aut_generators}, one may choose a system of canonical generators containing $\mu$.
+        so $TG^{-1} \in \text{Aut}_n(\Lambda)$. Hence $\text{Aut}_n(\Lambda)$ is a subgroup of $\text{Aut}(\Lambda)$. By the same reasoning as above, $\text{Aut}_n(\Lambda)$ is normal.
     \end{enumerate}
 \end{proof}
 
+\begin{definition}
+    Let $T \in \text{Aut}(\Lambda(\xi_1, \dots, \xi_q))$ given by
+    \begin{equation*}
+        T \xi_i = \sum_{j = 1}^q \psi_{ij} \xi_j + \alpha_i
+    \end{equation*}
+    with $\det \left\| \psi_{ij} \right\| \neq 0$ and $\deg \alpha_i \geq 2$. Then the automorphism
+    \begin{equation*}
+        T_1 \xi_i = \sum_{j = 1}^q \psi_{ij} \xi_j
+    \end{equation*}
+    is called the \emph{linear part} of $T$ and $\psi = \left\| \psi_{ij} \right\|$ the \emph{matrix of the linear part} of $T$. If $\alpha_i = 0$ for $i \in \left\{ 1, \dots q \right\}$ then $T$ is called \emph{linear} in the system of generators $\left\{ \xi_i \right\}$. The automorphism $T$ is called \emph{semisimple} is there exists a system of generators in which $T$ is linear. 
+\end{definition}
+
+\begin{theorem}
+    Let $T \in \text{Aut}(\Lambda(\xi_1, \dots, \xi_q))$. Let the matrix of the linear part of $T$ be diagonalizable such that its eigenvalues fulfil the conditions
+    \begin{equation}
+        \label{eq:semisimplicity_condition1}
+        \lambda_i \neq \lambda_{j_1} \dots \lambda_{j_{2k + 1}}, \quad j_1 < \dots < j_{2k + 1}, \quad k \in \left\{ 1, 2, \dots \right\}
+    \end{equation}
+    \begin{equation}
+        \label{eq:semisimplicity_condition2}
+        1 \neq \lambda_{j_1} \dots \lambda_{j_{2k + 1}}, \ \quad j_1 < \dots < j_{2k + 1}, \quad k \in \left\{ 0, 1, \dots \right\}
+    \end{equation}
+    then $T$ is semisimple. Let $A$ be a parity automorphism of $\Lambda$. Then furthermore if $T \in \text{Aut}_A^0(\Lambda)$ then condition \eqref{eq:semisimplicity_condition1} suffices for $T$ to be semisimple, whereas if $T \in \text{Aut}_A^1(\Lambda)$ condition \eqref{eq:semisimplicity_condition2} is sufficient.
+\end{theorem}
+\begin{proof}
+    Page 46 of \cite{berezin_introduction_1987}.
+\end{proof}
 
 
 
