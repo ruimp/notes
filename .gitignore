@@ -9,3 +9,7 @@
 *.bbl
 *.blg
 *.out
+*.vscode
+*.cspell
+*.txt
+*.json

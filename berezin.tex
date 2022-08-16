@@ -40,7 +40,7 @@
 \subsubsection{Algebras}
 
 \begin{definition}
-    An \emph{algebra} is a vector space $\mathfrak{A}$ over a field $\mathbb{K}$ equiped with a product satisfying $\forall u, v, w \in \mathfrak{A}$ and $\forall \alpha \in \mathbb{K}$
+    An \emph{algebra} is a vector space $\mathfrak{A}$ over a field $\mathbb{K}$ equipped with a product satisfying $\forall u, v, w \in \mathfrak{A}$ and $\forall \alpha \in \mathbb{K}$
     \begin{itemize}
         \item $u(v + w) = uv + uw$
         \item $(u + v)w = uw + vw$
@@ -124,7 +124,7 @@
 \end{proof}
 
 \begin{definition}
-    Let $\mathfrak{R}$ be a left (right) ideal of an algebra $\mathfrak{A}$. A subset $\Sigma \subseteq \mathfrak{R}$ is a \emph{system of generators} of $\mathfrak{R}$ or \emph{generating set} if $\forall x \in \mathfrak{R}$ can be writen as a polynomial on elements $\xi_i \in \Sigma$
+    Let $\mathfrak{R}$ be a left (right) ideal of an algebra $\mathfrak{A}$. A subset $\Sigma \subseteq \mathfrak{R}$ is a \emph{system of generators} of $\mathfrak{R}$ or \emph{generating set} if $\forall x \in \mathfrak{R}$ can be written as a polynomial on elements $\xi_i \in \Sigma$
     \begin{equation}
         \label{eq:generators_ideals}
         x = \sum_{k \geq 1} \sum_{i_1 \dots i_k} a_{i_1 \dots i_k} \xi_1 \dots \xi_k
@@ -150,7 +150,7 @@
 \end{definition}
 
 \begin{remark}
-    The commutation relations in \eqref{def:grassmann_commutation} imply that any element $f \in \Lambda(\xi_1, \dots, \xi_q)$ can be writen as
+    The commutation relations in \eqref{def:grassmann_commutation} imply that any element $f \in \Lambda(\xi_1, \dots, \xi_q)$ can be written as
     \begin{equation}
         \label{eq:grassmann_element}
         f = f(\xi) = \sum_{k \geq 0} \sum_{i_1 \dots i_k}
@@ -160,11 +160,11 @@
 \end{remark}
 
 \begin{definition}
-    Let $f \in \Lambda(\xi_1, \dots, \xi_q)$. Let $n \in \mathbb{N}$ be such that $f_{i_1 \dots i_k} = 0$ for $k < n$ and there exists some non zero coefficient for $k = n$. Then $n$ is called the \emph{degree} of $f$, writen as $\deg f = n$. If the nonvanishing coefficients of $f$ appear only for $k = n$, then $f$ is said to be \emph{homogeneous of degree $n$ with respect to $\deg$}.
+    Let $f \in \Lambda(\xi_1, \dots, \xi_q)$. Let $n \in \mathbb{N}$ be such that $f_{i_1 \dots i_k} = 0$ for $k < n$ and there exists some non zero coefficient for $k = n$. Then $n$ is called the \emph{degree} of $f$, written as $\deg f = n$. If the nonvanishing coefficients of $f$ appear only for $k = n$, then $f$ is said to be \emph{homogeneous of degree $n$ with respect to $\deg$}.
 \end{definition}
 
 \begin{proposition}
-    The degree of $f$ does not depend on the choice of system of generators of $\Lambda$. Wether $f$ is homogeous with respect to $\deg$ does, in general, depend on the choice of system of generators.
+    The degree of $f$ does not depend on the choice of system of generators of $\Lambda$. Wether $f$ is homogenous with respect to $\deg$ does, in general, depend on the choice of system of generators.
 \end{proposition}
 \begin{proof}
     Pages 36-37 of \cite{berezin_introduction_1987}.
@@ -187,7 +187,7 @@
 \end{definition}
 
 \begin{remark}
-    Seperating the sum in \eqref{eq:grassmann_element} into even and odd parts, it is becomes clear that
+    Separating the sum in \eqref{eq:grassmann_element} into even and odd parts, it is becomes clear that
     \begin{equation*}
         \Lambda(\xi_1, \dots, \xi_q) = \tensor[^0]{\Lambda(\xi_1, \dots, \xi_q)}{} \oplus \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{}.
     \end{equation*}
@@ -246,7 +246,7 @@
 
 \begin{theorem}
     \label{thm:grassmann_generators}
-    Any system of generators of a Grassman algebra $\Lambda_q$ contains a subsystem consisting of $q$ generators, and there exists no subsystem with fewer generators. Furthermore, let $\left\{ \xi_i \right\} \subseteq \Lambda_q$ be a subset of nilpotent elements whose union with the unit forms a system of generators of $\Lambda_q$. Then a subset $\left\{ \eta_j \right\} \subseteq \Lambda_q$ has the same property if and only if
+    Any system of generators of a Grassmann algebra $\Lambda_q$ contains a subsystem consisting of $q$ generators, and there exists no subsystem with fewer generators. Furthermore, let $\left\{ \xi_i \right\} \subseteq \Lambda_q$ be a subset of nilpotent elements whose union with the unit forms a system of generators of $\Lambda_q$. Then a subset $\left\{ \eta_j \right\} \subseteq \Lambda_q$ has the same property if and only if
     \begin{equation*}
         \eta_i = \sum_{j = 1}^{q} a_{ij} \xi_j + \sigma_j
     \end{equation*}
@@ -258,7 +258,7 @@
 
 \begin{theorem}
     \label{thm:grassmann_canonical_generators}
-    Let $\left\{ \xi_i \right\}$ be a system of canonnical generators of the Grassmann algebra $\Lambda(\xi_1, \dots, \xi_q)$. Then
+    Let $\left\{ \xi_i \right\}$ be a system of canonical generators of the Grassmann algebra $\Lambda(\xi_1, \dots, \xi_q)$. Then
     \begin{enumerate}
         \item a collection of odd elements $\left\{ \eta_j \right\}$ with respect to $\left\{ \xi_i \right\}$ together with the unit constitutes a system of canonical generators of $\Lambda_q$ if and only if
         \begin{equation*}
@@ -321,7 +321,7 @@
         \tensor[^{1, \mu}]{\Lambda}{}
         = \left\{ f(1 + \mu) \ \middle| \ f \in \tensor[^1]{\Lambda(\xi_1, \dots, \xi_q)}{} \right\}.
     \end{equation*}
-    is the space of odd elements with respect to some system of canonica generators of $\Lambda$.
+    is the space of odd elements with respect to some system of canonical generators of $\Lambda$.
 \end{corollary}
 
 
@@ -329,7 +329,7 @@
 
 
 \begin{definition}
-    Let $\Lambda$ be a Grassmann algebra. Let $\tensor[^0]{\Lambda}{}$ and $\tensor[^1]{\Lambda}{}$ be its even and odd componenets with respect to some system of generators. A linear transformation $A: \Lambda \rightarrow \Lambda$ is a \emph{parity automorphism} if
+    Let $\Lambda$ be a Grassmann algebra. Let $\tensor[^0]{\Lambda}{}$ and $\tensor[^1]{\Lambda}{}$ be its even and odd components with respect to some system of generators. A linear transformation $A: \Lambda \rightarrow \Lambda$ is a \emph{parity automorphism} if
     \begin{enumerate}
         \item $A^2 = \mathds{1}$, the identity automorphism
         \item $A f = f \Leftrightarrow f \in \tensor[^0]{\Lambda}{}$.
@@ -338,7 +338,7 @@
 
 \begin{theorem}
     \label{thm:parity_aut_generators}
-    Let $\Lambda$ be a Grassmann algebra and $A$ a parity automophism of $\Lambda$. The space of eigenvectors of $A$ with eigenvalue $-1$ coincides with the space of odd elements with respect to a system of canonical generators.
+    Let $\Lambda$ be a Grassmann algebra and $A$ a parity automorphism of $\Lambda$. The space of eigenvectors of $A$ with eigenvalue $-1$ coincides with the space of odd elements with respect to a system of canonical generators.
 \end{theorem}
 \begin{proof}
     Page 43 of \cite{berezin_introduction_1987}.
@@ -363,10 +363,10 @@
 \subsubsection{Automorphisms of Grassmann Algebras}
 
 \begin{proposition}
-    Theorem \ref{thm:grassmann_generators} gives a discription of all automophisms of Grassmann algebras.
+    Theorem \ref{thm:grassmann_generators} gives a description of all automorphisms of Grassmann algebras.
 \end{proposition}
 \begin{proof}
-    Let $T: \Lambda \rightarrow \Lambda$ be such an automorphism and $\left\{ \xi_i \right\}$ a system of canonical generators of $\Lambda$. Then $T$ maps $\left\{ \xi_i \right\}$ into a system of canonical generators. On the other hand, given another system of canonical generators $\left\{ \eta_i \right\}$, then one may contruct $T$ such that $T \xi_i = \eta_i$ for all $i \in \left\{ 1, \dots, q \right\}$, and this uniquely defines $T$.
+    Let $T: \Lambda \rightarrow \Lambda$ be such an automorphism and $\left\{ \xi_i \right\}$ a system of canonical generators of $\Lambda$. Then $T$ maps $\left\{ \xi_i \right\}$ into a system of canonical generators. On the other hand, given another system of canonical generators $\left\{ \eta_i \right\}$, then one may construct $T$ such that $T \xi_i = \eta_i$ for all $i \in \left\{ 1, \dots, q \right\}$, and this uniquely defines $T$.
 \end{proof}
 
 \begin{definition}
@@ -401,7 +401,7 @@
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Let $\Lambda(\xi_1, \dots, \xi_q)$ be a Grassmann algebra and $A$ a parity automophism of $\Lambda$.
+    Let $\Lambda(\xi_1, \dots, \xi_q)$ be a Grassmann algebra and $A$ a parity automorphism of $\Lambda$.
     \begin{enumerate}
         \item Follows from the decomposition $\Lambda = \tensor[^0]{\Lambda}{} \oplus \tensor[^1]{\Lambda}{}$.
         \item Notice that
@@ -465,6 +465,85 @@
 \begin{proof}
     Page 46 of \cite{berezin_introduction_1987}.
 \end{proof}
+
+
+\subsubsection{Anti-automorphisms of Grassmann Algebras}
+
+\begin{definition}
+    \label{def:anti-automorphism}
+    Let $\Lambda$ be a Grassmann algebra. An \emph{anti-automorphism} $\mathcal{F}$ is a map $\mathcal{F}: \Lambda \rightarrow \Lambda$ such that
+    \begin{enumerate}
+        \item $\mathcal{F}(\lambda f + \mu g) = \overline{\lambda} \mathcal{F}(f) + \overline{\mu} \mathcal{F} (g)$
+        \item $\mathcal{F} (fg) = \mathcal{F}(g) \mathcal{F}(f)$
+        \item $\mathcal{F}^2 = T$
+    \end{enumerate}
+    where $T: \Lambda \rightarrow \Lambda$ is invertible. If $T = \mathds{1}$ then $\mathcal{F}$ is said to be an \emph{involution of the first kind}. If $T$ is a parity automorphism of $\Lambda$ then $\mathcal{F}$ is an \emph{involution of the second kind}.
+\end{definition}
+
+\begin{remark}
+    The image of a system of canonical generators of $\Lambda$ is mapped by an anti-automorphism $\mathcal{F}$ into another system of canonical generators.
+\end{remark}
+
+\begin{proposition}
+    Let $\mathcal{F}: \Lambda \rightarrow \Lambda$ be an anti-automorphism such that $\mathcal{F}^2 = T$. Then $T$ is an automorphism of $\Lambda$.
+\end{proposition}
+\begin{proof}
+    Follows from definition \ref{def:anti-automorphism} that $T$ is invertible, thus bijective. Then
+    \begin{equation*}
+        T(\lambda f + \mu g) = \mathcal{F}^2 (\lambda f + \mu g) = \mathcal{F} \left( \overline{\lambda} \mathcal{F}(f) + \overline{\mu} \mathcal{F}(g) \right)
+        = \lambda \mathcal{F}^2(f) + \mu \mathcal{F}^2(g)
+        = \lambda T(f) + \mu T(g)
+    \end{equation*}
+    and
+    \begin{equation*}
+        T(f g) = \mathcal{F}\left( \mathcal{F}(g) \mathcal{F}(f) \right)
+        = \mathcal{F}^2(f) \mathcal{F}^2(g) = T(f) T(g)
+    \end{equation*}
+    so $T$ is an algebra homomorphism. We conclude that $T$ is an automorphism of $\Lambda$.
+\end{proof}
+
+\begin{theorem}
+    Let $\Lambda_q$ be a Grassmann algebra and $\mathcal{F}$ an anti-automorphism such that $\mathcal{F}^2 = T$ for $T$ semisimple. Then there exists a system of canonical generators $\left\{ \xi_i \right\}$ such that 
+    \begin{equation*}
+        \mathcal{F} \xi_i = \sum_{j = 1}^q a_{ij} \xi_j.
+    \end{equation*}
+    If $\Lambda$ is a complex Grassmann algebra and the matrix of the linear part of $T$ is diagonalizable, then one may pick a system of canonical generators $\left\{ \xi_i \right\}$ such that $\left\| a_{ij} \right\|$ are real.
+\end{theorem}
+\begin{proof}
+    Pages 47-50 of \cite{berezin_introduction_1987}.
+\end{proof}
+
+\begin{corollary}
+    Let $\Lambda_q$ be a real Grassmann algebra with an involution of the first kind. There exists a system of canonical generators $\left\{ \xi_i \right\}$ such that $\xi_i^* = \varepsilon_i \xi_i$ for
+    \begin{equation*}
+        \epsilon_i = \left\{
+            \begin{array}{cl}
+                1 & \text{for } 1 \leq i \leq s \\
+                -1 & \text{for } s + 1 \leq i \leq q
+            \end{array} \right.
+    \end{equation*}
+    where $s$ depends on the involution.
+\end{corollary}
+
+\begin{corollary}
+    Let $\Lambda_q$ be a complex Grassmann algebra with an involution of the first kind. Then there exists a system of canonical generators $\left\{ \zeta_i \right\}$ in $\Lambda_q$ which are invariant with respect to the involution $\zeta_i^* = \zeta_i$. If $q = 2m$, then there exists a system of canonical generators in pairs $\left\{ \varphi_i, \psi_i \right\}_{i \in \left\{ 1, \dots, m \right\}}$ such that
+    \begin{equation*}
+        \varphi_i^* = \psi, \quad \text{and} \quad \psi_i^* = \varphi_i.
+    \end{equation*}
+\end{corollary}
+
+\begin{corollary}
+    A Grassmann algebra $\Lambda_q$ admits an involution of the second kind only if $q$ is even. Let $\mathcal{F}$ be such an involution for $q = 2m$. Then there exists a system of canonical generators in pairs $\left\{ \varphi_i, \psi_i \right\}_{i \in \left\{ 1, \dots, m \right\}}$ for which
+    \begin{equation*}
+        \mathcal{F} \varphi_i = \psi_i, \quad \text{and} \quad
+        \mathcal{F} \psi_i = - \varphi_i.
+    \end{equation*}
+\end{corollary}
+
+\begin{proof}
+    Proofs for the corollaries can be found in pages 50-51 of \cite{berezin_introduction_1987}.
+\end{proof}
+
 
 
 
