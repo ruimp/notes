@@ -541,8 +541,137 @@
 \end{corollary}
 
 \begin{proof}
-    Proofs for the corollaries can be found in pages 50-51 of \cite{berezin_introduction_1987}.
+    Proofs of the corollaries can be found in pages 50-51 of \cite{berezin_introduction_1987}.
 \end{proof}
+
+
+\subsection{$\Lambda (U)$ algebras}
+
+\subsubsection{Functions on Grassmann Algebras}
+
+\begin{definition}
+    Let $E$ be a set, $\Lambda$ a Grassmann algebra over $\mathbb{K}$, and $\Lambda^E$ the algebra of functions on $E$ with values in $\Lambda$. If $E$ is a smooth manifold then $\Lambda(E) \subseteq \Lambda^E$ is the algebra of smooth functions on $E$ with values in $\Lambda$. Elements $f \in \Lambda^E$ are of the form
+        \begin{equation*}
+            \label{eq:functions_grassmann_algebra}
+            f = f(x, \xi) = \sum_{k \geq 0} \sum_{i_1, \dots, i_k}
+            f_{i_1 \dots i_k}(x) \xi_{i_1} \dots \xi_{i_k}
+        \end{equation*}
+    where $x \in E$ and $f_{i_1, \dots, i_k}$ are $\mathbb{K}$-valued functions on $E$. If $f \in \Lambda(E)$ then $f_{i_1, \dots, i_k}$ are smooth functions.
+\end{definition}
+
+\begin{definition}
+    A sequence $f_n \in \Lambda(E)$ is said to converge to $f \in \Lambda(E)$ if the all component functions converge $f_{n_{i_1, \dots, i_k}} \rightarrow f_{i_1, \dots, i_k}$ uniformly on all compact subsets of $E$, and so do all their derivatives.
+\end{definition}
+
+\begin{definition}
+    An element $f \in \Lambda^E$ is said to be \emph{odd} if $f(x) \in \tensor[^1]{\Lambda}{}$ for all $x \in E$, and \emph {even} if $f(x) \in \tensor[^0]{\Lambda}{}$ for all $x \in E$. Even and odd elements are called \emph{homogeneous}.
+\end{definition}
+
+\begin{definition}
+    Let $m, n \in \mathbb{N}$. We denote by $\left( \Lambda^E \right)^{m, n}$ the set of all tuples of $m$ odd and $n$ even elements in $\Lambda^E$, and write
+    \begin{equation*}
+        (f_1(x), \dots, f_m(x), \varphi_1(x), \dots, \varphi_n(x)) \in 
+        \left( \Lambda^E \right)^{m, n}
+    \end{equation*}
+    The set $\left( \Lambda^E \right)^{m, n}$ form a module over $\left( \tensor[^0]{\Lambda}{} \right)^E$. If $E$ is a smooth manifold then denote the set of smooth functions $f_i(x)$ and $\varphi_j(x)$ by $\Lambda^{m, n}(E)$, which is understood as a module over $\tensor[^0]{\Lambda(E)}{}$.
+\end{definition}
+
+\begin{remark}
+    Consider the homomorphism $m: \Lambda^E \rightarrow \mathbb{K}^E$ given by
+    \begin{equation*}
+        \left[ m(f)\right] (x) = f(x, 0) = f_0(x)
+    \end{equation*}
+    where $f_0(x)$ corresponds to the term with $k = 0$ in \eqref{eq:functions_grassmann_algebra}. For each $a \in E$ this gives a homomorphism $\mu_a: \Lambda^E \rightarrow \mathbb{K}$ given by $\mu_a(f) = \left[ m(f) \right](a) = f_0(a)$. If $E$ is a smooth manifold, this gives a bijection $\mu: E \rightarrow \text{Hom}(\Lambda(E), \mathbb{K})$ defined by $\mu(x) = \mu_x$.
+\end{remark}
+
+\begin{definition}
+    Let $f = (f_1, \dots, f_n)$ be an ordered set of elements of $\Lambda^E$. The \emph{spectrum} of this set is denoted $\text{Spec}(f) \subseteq \mathbb{K}^n$ and is defined by
+    \begin{equation*}
+        \text{Spec}(f) = \left[ m(f) \right] (\mathbb{K}) 
+        = \left\{ \left( \left[ m(f_1) \right](x), \dots, \left[ m(f_n) \right](x) \right) \ \middle| \ x \in \mathbb{K} \right\}.
+    \end{equation*}
+\end{definition}
+
+
+\subsubsection{Restriction Homomorphisms}
+
+\begin{definition}
+    \label{def:restriction_homomorphism}
+    Let $M$ be a smooth manifold and $V \subseteq U \subseteq M$ open subsets. A \emph{restriction homomorphism} is a function $\rho_V^U: \Lambda(U) \rightarrow \Lambda(V)$ with the following properties:
+    \begin{enumerate}
+        \item $\rho_U^U = \mathds{1}$,
+        \item if $W \subseteq V \subseteq U$ then $\rho_U^W = \rho_V^W \rho_U^V$,
+        \item if $\left\{ U_\alpha \right\}_{\alpha \in A}$ is a covering of $U$, then:
+        \begin{enumerate}
+            \item if for all $\alpha \in A$, $\rho_{U_\alpha}^U f = \rho_{U_\alpha}^U g$ for some pair $f, g \in \Lambda(U)$ then $f = g$,
+            \item if there exists $f_\gamma \in \Lambda(U_\gamma)$ for all $\gamma \in A$ such that $\rho_{U_\alpha \cap U_\beta}^{U_\alpha} f_\alpha = \rho_{U_\alpha \cap U_\beta}^{U_\beta} f_\beta$, then there exists $f \in \Lambda(U)$ such that $f_\gamma = \rho_{U_\gamma}^U f$,
+        \end{enumerate}
+        \item $\rho_V^U$ preserve parity.
+    \end{enumerate}
+    The \emph{standard restriction homomorphism} $\mathring{\rho}_V^U: \Lambda(U) \rightarrow \Lambda(V)$ that acts on $f \in \Lambda(U)$ by  restricting its domain to $V$.
+\end{definition}
+
+\begin{proposition}
+    Let $M$ be a smooth manifold and $V \subseteq U \subseteq M$ open subsets. Let $T_U$ be a parity endomorphism of $\Lambda(U)$. Then $\rho_V^U = T_V^{-1} \mathring{\rho}_V^U T_V$ is a restriction homomorphism.
+\end{proposition}
+\begin{proof}
+    Let us check that that $\rho_V^U$ satisfies all properties of definition \ref{def:restriction_homomorphism}, using the fact that $\mathring{\rho}_V^U$ is the standard restriction homomorphism.
+    \begin{enumerate}
+        \item $\rho_U^U = T_U^{-1} \mathring{\rho}_U^U T_U = T_U^{-1} T_U = \mathds{1}$,
+        \item using the fact that $T_V$ restricts to $T_W$ on $W$ we get
+        \begin{equation*}
+            \rho_V^W \rho_U^V = T_W^{-1} \mathring{\rho}_W^V T_W T_V^{-1} \mathring{\rho}_U^V T_V = T_W^{-1} \mathring{\rho}_W^V \mathring{\rho}_U^V T_V
+            = T_W^{-1} \mathring{\rho}_U^W T_W = \rho_W^U,
+        \end{equation*}
+        \item
+        \begin{enumerate}
+            \item $\rho_{U_\alpha}^U f = \rho_{U_\alpha}^U g \Leftrightarrow 
+            T_{U_\alpha}^{-1}\mathring{\rho}_{U_\alpha}^U T_{U_\alpha} f = T_{U_\alpha}^{-1}\mathring{\rho}_{U_\alpha}^U T_{U_\alpha} g \Leftrightarrow
+            \mathring{\rho}_{U_\alpha}^U f = \mathring{\rho}_{U_\alpha}^U g$
+            thus $f = g$,
+            \item analogously to point (a)
+            \begin{align*}
+            \rho_{U_\alpha \cap U_\beta}^{U_\alpha} f_\alpha = \rho_{U_\alpha \cap U_\beta}^{U_\beta} f_\beta &\Leftrightarrow
+            T_{U_\alpha \cap U_\beta}^{-1} \mathring{\rho}_{U_\alpha \cap U_\beta}^{U_\alpha} T_{U_\alpha \cap U_\beta} f_\alpha = T_{U_\alpha \cap U_\beta}^{-1} \mathring{\rho}_{U_\alpha \cap U_\beta}^{U_\beta} T_{U_\alpha \cap U_\beta} f_\beta \\
+            &\Leftrightarrow \mathring{\rho}_{U_\alpha \cap U_\beta}^{U_\alpha} f_\alpha = \mathring{\rho}_{U_\alpha \cap U_\beta}^{U_\beta} f_\beta
+            \end{align*}
+            implying there exists $f \in \Lambda(U)$ such that $f_\gamma = \mathring{\rho}_{U_\gamma}^U f$. Thus
+            \begin{equation*}
+                f_\gamma = T_{U_\alpha} T_{U_\alpha}^{-1} f_\gamma = \mathring{\rho}_{U_\gamma}^U f \Longrightarrow
+                f_\gamma = T_{U_\gamma}^{-1} \mathring{\rho}_{U_\gamma}^U T_{U_\gamma} f
+                = \rho_{U_\gamma}^U f.
+            \end{equation*} 
+        \end{enumerate}
+        \item follows directly from $T_U$ preserving parity.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    If $U \subseteq \mathbb{R}^p$ and $\Lambda = \Lambda_q$, then one may write $\Lambda(U)$ more explicitly as $\Lambda_{p, q}(U)$ or, choosing coordinates $\left\{ x_i \right\}$ on $U$ and a system of canonical generators $\left\{ \xi_j \right\}$, as $\Lambda\left( U \middle| x_1, \dots, x_p, \xi_1, \dots, \xi_q \right)$.
+\end{definition}
+
+
+\subsubsection{Grassmann Analytic Functions}
+
+\begin{definition}
+    Let $f_i(x, \xi) \in \Lambda_{p,q}(U)$ be an even element for $i \in \left\{ 1, \dots, n \right\}$. We write
+    \begin{equation*}
+        f_i(x, \xi) = a_i(x) + h_i(x, \xi)
+    \end{equation*}
+    with $\deg h_i \geq 2$. Let $g: V \rightarrow \Lambda_{p, q}(U)$ be infinitely differentiable function such that $\text{Spec}(f_1, \dots, f_n) \subseteq V$. The \emph{superposition} of $g(f_1, \dots, f_n) \in \Lambda_{p, q}(U)$ is defined by
+    \begin{equation*}
+        g(f_1, \dots, f_n) = g(a_1 + h_1, \dots, a_n + h_n) +
+        \sum_{\sum k_I \geq 0} \frac{h_1^{k_1} \dots h_n^{k_n}}{k_1! \dots k_n!}
+        \frac{\partial^{k_1 + \dots + k_n}}{\partial a_1^{k_1} \dots \partial a_n^{k_n}}
+        g(a_1, \dots, a_n)
+    \end{equation*}
+    where the sum is finite as $h_i$ are nilpotent.
+\end{definition}
+
+
+
+
+
 
 
 
@@ -557,7 +686,7 @@
 \subsection{Sheaves}
 
 \begin{definition}
-    Let X be a topological space. We define Op$(X)$ to be the \emph{category of open sets of X}. The objects of Op$(X)$ are open subsets $U \subseteq X$ and morphisms are inclusions of open sets $V \subseteq U \subseteq X$ into eachother.
+    Let X be a topological space. We define Op$(X)$ to be the \emph{category of open sets of X}. The objects of Op$(X)$ are open subsets $U \subseteq X$ and morphisms are inclusions of open sets $V \subseteq U \subseteq X$ into each other.
 
     \begin{figure}[ht]
         \centering
@@ -595,7 +724,7 @@ A presheaf includes
 \end{definition}
 
 \begin{remark}
-    Intuitively, precheaves encode data from $C$ attached to open sets of $X$. The structural morphism $\rho_V^U: F(U) \rightarrow F(V)$ can be thought of as the restriction of the data enconded in $U$ to that concerning only the subset $V$.
+    Intuitively, presheaves encode data from $C$ attached to open sets of $X$. The structural morphism $\rho_V^U: F(U) \rightarrow F(V)$ can be thought of as the restriction of the data encoded in $U$ to that concerning only the subset $V$.
 \end{remark}
 
 \begin{definition}
